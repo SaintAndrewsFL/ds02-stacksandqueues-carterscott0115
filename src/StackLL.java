@@ -1,12 +1,36 @@
-public class StackLL {
-}
+import java.util.LinkedList;
 
-
-/*
-E push(E item) - Pushes an item onto the top of this stack.
-E pop() - Removes the object at the top of this stack and returns that object as the value of this function.
-E peek()- Looks at the object at the top of this stack without removing it from the stack.
-void display() - Outputs the stack order
-int size() - Returns number of items in the stack
-boolean isEmpty - Checks if stack is currently empty
- */
+public class StackLL<E> {
+        LinkedList<E> Stack;
+        public StackLL() {
+            Stack = new LinkedList<E>();
+        }
+        public E enqueue(E item) {
+            Stack.addFirst(item);
+            return item;
+        }
+        public E dequeue() {
+            if(Stack.size() == 0) {
+                return null;
+            }
+            E item = Stack.remove(0);
+            return item;
+        }
+        public E peek() {
+            if(Stack.size() == 0) {
+                return null;
+            }
+            return Stack.get(0);
+        }
+        public void display() {
+            for (int i = 0; i < Stack.size(); i++) {
+                System.out.println("Item " + (i + 1) + ": " + Stack.get(i));
+            }
+        }
+        public int size() {
+            return Stack.size();
+        }
+        public boolean isEmpty() {
+            return Stack.isEmpty();
+        }
+    }
